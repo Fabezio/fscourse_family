@@ -1,10 +1,10 @@
 const array = []
 let i = 0
-document.getElementById("envoyer-1").addEventListener("click", function (e) {
+document.getElementById("envoyer-1").addEventListener("click", function () {
   // document.querySelector("#taille").valuesi
   const size = document.getElementById("taille").value
   console.log("taille:" , size)
-  document.getElementById("envoyer-2").addEventListener("click", function (e)  {
+  document.getElementById("envoyer-2").addEventListener("click", function ()  {
     if(i < size) {
       const val = document.getElementById("tab").value
       array.push(val)
@@ -19,15 +19,26 @@ document.getElementById("envoyer-1").addEventListener("click", function (e) {
         document.getElementById("moyenne").textContent = moyenne(array)
         document.getElementById("variance").textContent = variance(array)
         document.getElementById("ecart-type").textContent = ecartType(array)
-
+        
       })
-
+      
     }
+    document.getElementById("reset-2").addEventListener("click", function () {
+      delete array
+      i = 0
+      console.log(array)
+    })
     // if (array.length == size) 
   })
+})
+document.getElementById("reset-1").addEventListener("click", function () {
+  document.location.reload(true)
+})
+document.getElementById("reset-2").addEventListener("click", function () {
+  document.location.reload(true)
+})
 
   
-})
 function moyenne (data) {
   let sum = 0
   for (el of data) {
